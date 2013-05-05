@@ -3,12 +3,10 @@
 Plugin Name: WordPress Scheduled Time
 Plugin URI: http://www.willen.net/wordpress-scheduled-time/
 Description: This plugin makes it possible to see the scheduled post time of a post.
-Version: 0.9
+Version: 1.0
 Author: Paul Willen
 Author URI: http://www.willen.net
 */ 
-
-global $post;
 
 add_filter( 'manage_edit-post_sortable_columns', 'wst_sortable_column');
 add_filter('manage_posts_columns', 'wst_set_post_columns');
@@ -25,43 +23,19 @@ function wst_set_post_columns($columns) {
   return $columns;
 }
 
-function wst_show_columns($columnname) {
-    global $post;
-    switch ($columnname) {
-        case 'published-time':
-		if ($post->post_status == 'future')
-		{
-			?>
-			<p style="color:#2EC63F">Scheduled <br /><?php the_time(get_option('date_format')); ?> @ <?php the_time(get_option('time_format')); ?></p>
-			<?php
-		}
-		elseif ($post->post_status == 'publish')
-		{
-		    ?>
-			<p style="color:black">Published <br /><?php the_time(get_option('date_format')); ?> @ <?php the_time(get_option('time_format')); ?></p>
-			<?php
-		}
-		elseif ($post->post_status == 'draft')
-		{
-			?>
-			<p style="color:orange">Draft <br /><?php the_time(get_option('date_format')); ?> @ <?php the_time(get_option('time_format')); ?></p>
-			<?php
-		}
-		elseif ($post->post_status == 'pending')
-		{
-			?>
-			<p style="color:red">Pending <br /><?php the_time(get_option('date_format')); ?> @ <?php the_time(get_option('time_format')); ?></p>
-			<?php
-		}
-		elseif ($post->post_status = 'trash')
-		{
-		?>
-			<p style="color:brown">Trash <br /><?php the_time(get_option('date_format')); ?> @ <?php the_time(get_option('time_format')); ?></p>
-			<?php
-		}
-		else {
-		}      
-    }
+function wst_get_status_style($status){
+	switch($status){
+		case 'future':
+			return "color:#2EC63F";
+		case 'pending':
+			return "color:#DC5663";
+		default:
+			return "color:#000";
+	}
 }
 
-?>
+function wst_show_columns($columnname) {
+	global $post;
+	if($columnname == 'published-time')
+		echo "<p style='". wst_get_status_style($post->post_status) ."'>". ucfirst($post->post_status) ." <br />". get_the_time(get_option('date_format')) ." <br/> ". get_the_time(get_option('time_format')) ."</p>";
+}
