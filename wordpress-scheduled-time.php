@@ -25,10 +25,15 @@ function wst_set_post_columns($columns) {
 
 function wst_get_status_style($status){
 	switch($status){
+		case 'publish':
 		case 'future':
-			return "color:#2EC63F";
+			return "color:#339933";
 		case 'pending':
-			return "color:#DC5663";
+		case 'edited':
+		case 'pitch':
+			return "color:#CC3300";
+		case 'ready-for-edit':
+			return "color:#CC9933";
 		default:
 			return "color:#000";
 	}
