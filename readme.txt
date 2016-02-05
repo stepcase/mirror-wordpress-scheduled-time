@@ -3,7 +3,7 @@ Contributors: <a href="http://wordpress.org/support/profile/paulwillen">Paul Wil
 Donate link: http://	example.com/
 Tags: Scheduled Time, More Information, Posts-overview
 Requires at least: 3.1.3
-Tested up to: 3.2
+Tested up to: 4.1
 Stable tag: 3.1.3
 License: GPLv2 or later
 
@@ -18,7 +18,7 @@ This plugin's main feature is that is displays also the WordPress Scheduled Post
 Other features:
 
 * Sorable Column on Post Status
-* Gives a clear overview if a post is published/scheduled/draft/pending review or Trashed with different colors.
+* Gives a clear overview if a post is published / scheduled / draft / pending review or Trashed with different colors.
 
 == Installation ==
 
@@ -44,11 +44,22 @@ A: Because it really nerved me that I couldn't see WHEN a post was scheduled for
 1. screenshot-1.PNG
 
 == Changelog ==
+= 1.0.2 =
+* Small Bugfix
+
+= 1.0.1 =
+* Changed Plugin description to mention the 4.1 Compatibility
+
+= 1.0 =
+* Plugin is WordPress 4.1 Compatible
 
 = 0.9 =
 * Initial Release
 
 == Upgrade Notice ==
+
+= 1.0 =
+* Plugin is WordPress 4.1 Compatible
 
 = 0.9 =
 * Initial Release

@@ -3,7 +3,7 @@
 Plugin Name: WordPress Scheduled Time
 Plugin URI: http://www.willen.net/wordpress-scheduled-time/
 Description: This plugin makes it possible to see the scheduled post time of a post.
-Version: 1.0
+Version: 1.0.2
 Author: Paul Willen
 Author URI: http://www.willen.net
 */ 
